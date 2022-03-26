@@ -1,0 +1,16 @@
+- Syntax Parsers
+     - parser to determine if your code grammar is valid
+     - ensure compiler/interpreter can read code properly and convert to instructions
+     - interpreter can do additional things with your code before instructions are made
+- Lexical Environments
+    - where something is in your code. place of what you write is important
+    - where its written will determine where it sits in memory after it is compiled
+- Execution Context
+    - wrapper to manage the code you are running
+    - which lexical environment is actually running managed by execution context
+- Name/Value pair
+    - name which maps to unique value. name can only have 1 value in any execution context
+    - value can be more more collections
+    - Object in JS is collection of name/value pairs
+- Code in JS always run in execution context. Base execution context is global context
+    - Global context means accessible available anywhere. Creates global object and 'this'
