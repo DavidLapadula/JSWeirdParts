@@ -28,3 +28,38 @@
     - undefined should mean "code was never set" so never explicity set it, let js engine do that
 - Single threaded: one command at a time
 - Synchronous: one command at a time and IN ORDER
+- Fn invocation
+    - to invoke just means running or calling a function
+    - when fn called, new execution context created and put on a stack, the one on top is the one that is running
+        - new ex. context will go through phases, create pointers, run line by lime etc
+        - fn calling a fn will create ANOTHER execution ctx and put it on top   
+        - ex. ctx popped off stack only when it finishes
+- Variable Environment
+    - where variable lives and how they relate in memory
+    - every ex ctx has its own variable environment
+    - scope: where are we and what are we able to see
+- Scope chain
+    - scope is where variable can be accessed, chain is link of outer environments
+    - JS looks beyond variable env of current ctx.
+    - ex ctx has reference to outer env, not necessarily ctx below it in stack, but where it is in file (lexical env)
+    - outer env is lexical env
+    - js fn, if call undefined var, will look at outer env when invoked, which is determined by lexical env
+        - will continue looking to outer env, all the way down the scope chain to global
+    - physical location in file determines lexical env, so important
+- Call same fn twice = 2 ex ctx's = every variable is different in memory (unless defined globally)
+- let 
+    - allows for block scoping
+    - cant be used until line that declares it in execution phase runs
+        - will cause error if called before defined, unlike var which will give you undefined
+    - only available in block
+- Async callbacks
+    - Async just means < 1 at a time
+    - JS engine is just one element of browser, but it has hooks to other parts (like HTTP req's)
+    - Can make calls async because these other calls are running WHILE JS engine is doing stuff, but code will run inside engine synchronously
+    - Event Queue
+        - Sth outside JS engine and needs to notify sth inside JS engine, gets placed on the queue
+        - Could have fn to handle sth on the Queue
+            - Ex. could be listening for a click, which would be put on the queue
+        - Event queue gets looked at ONLY when execution stack is empty
+        - Browser puts async (outside engine) things in queue, JS runs line by line for each ex. ctx, THEN handles any functions that require things in the event queue in the order they were put on the queue
+        - event loop is just continuous check for anything on the queue even after all code has run
