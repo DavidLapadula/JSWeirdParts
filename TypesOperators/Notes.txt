@@ -1,0 +1,15 @@
+- Dynamic typing: Typing happens during compilation. you dont tell js engine what type variable holds. Same variable could different values.
+- Primitive types: type that represent single value (not collection like object)
+    - undefined: value not set, what variable is during creation phase
+    - null: YOU set this to mean lack of existence
+    - boolean, number (is floating point), string, symbol
+- Operators
+    - special function written specifically, takes 2 parameters. 
+    - Infix notation, fn call is between parameters   
+    - Precedence: which gets called first when on same line
+    - Associativity: which gets called first when same precedence (r-to-l or l-to-r)
+        - right associativity means running furthest to the right first    
+- Coercion
+    - converting value from one type to another (happens b/c dynamically typed)
+    - js engine will try to coerce value to equivalent in proper type. Does NOT throw error
+    - dynamic typing will try to convert value you want to what it SHOULD be
