@@ -6,10 +6,31 @@
 - Operators
     - special function written specifically, takes 2 parameters. 
     - Infix notation, fn call is between parameters   
-    - Precedence: which gets called first when on same line
+    - Precedence: which gets called first when on same line. ALL operators run in order of precedence first
     - Associativity: which gets called first when same precedence (r-to-l or l-to-r)
         - right associativity means running furthest to the right first    
 - Coercion
     - converting value from one type to another (happens b/c dynamically typed)
     - js engine will try to coerce value to equivalent in proper type. Does NOT throw error
     - dynamic typing will try to convert value you want to what it SHOULD be
+- Comparison Operators
+    - JS engine decides what to coerce a value to
+    - NaN, try to coerce to a number but cannot coerce
+    - double equals (==) will cause issues because of cercion. false == 0 would be true, but null == 0 would be false
+        - Same values coerce to different things in different circumstances
+    - triple equals will not coerce anything
+- Existnce and Booleans 
+    - Anything in if statement will attempt to coerce to boolean
+        - So can check for existence using if statement with variable
+    - 0 coerces to false, so may need to check it
+- Default values
+    - JS unique b/c can call function that uses parameters without any
+    - Value will be undefined b/c JS engine will create variable in execution phase
+    - + operator on string will coerce, so undefined could turn into 'undefined'
+    - OR in JS will return value that CAN be coerced to true
+        - Operator is a function that returns values, same goes for OR
+- Frameworks and default values
+    - Script tags stack code and running as if in one file. Everything in GLOBAL namespace
+    - Overwriting between libraries CAN occur
+    - NOT creating new execution ctx. Can use OR trick to not overwrite the values if they exist from other libraries
+    -
