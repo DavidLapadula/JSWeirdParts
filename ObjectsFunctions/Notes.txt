@@ -1,0 +1,7 @@
+- Objects and Fn's very similar in JS
+- Object can have property (primitive, another object), and a method
+- In memory, will be address with object and then reference where its properties/methods are
+    -  [] is an operator for get/set values in object. Looks for property with that name and either gets or sets 
+        - better for dynamic values b/c can pass variable   
+    - . operator - takes object and looks for the string value of what is given - parser converts to a string
+        - b/c is operator (high precedence) will run left to right, looking at each object in that order
