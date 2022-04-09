@@ -7,3 +7,10 @@ var firstNameProperty = "firstname";
 
 console.log(person);
 console.log(person[firstNameProperty]);
+
+var person2 = {
+    name: "David",
+    address: {
+        number: "234 Ave"
+    }
+}

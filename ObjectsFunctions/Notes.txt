@@ -5,3 +5,26 @@
         - better for dynamic values b/c can pass variable   
     - . operator - takes object and looks for the string value of what is given - parser converts to a string
         - b/c is operator (high precedence) will run left to right, looking at each object in that order
+- Object literal
+     - just use {}, engine will make a new object when sees it, and can set propertis on it
+     - split across lines and still treated as one line of code
+     - allows creating obj on the fly, like when passing to an argument
+        - creating ON THE FLY powerful feature of JS other languages do not have
+    - JS engine doing same thing, just syntactic sugar, still just creating an objectwith pointers in memory
+- Faking Namespaces
+    - NS is container for variables and functions; separates values with same name
+    - JS does not have namespaces, issue if value set on global object with same name in different files
+    - Objects can be containers that prevent collision in global namespace
+- Dot operator is left associative, so if value not found, is undefined, and cannot use dot on undefined
+- KEY POINT: associativity/precedence of operators return something, which is the value that is used
+- JSON
+    - data USED to be sent across internet as xml, but formatting causes many extra characters
+    - JSON uses less characters, is a SUBSET of object literals
+    - Due to similarity, JS has .stringify to make JSON and .parse to return to object
+- FN's are objects
+    - First class fn's: everything you can do with other types, you can do with fn's (assign, pass, create on the fly)
+    - Special type of object
+         - can be anonymous
+         - code inside is just another property, which is invocable (then execution ctx created etc)
+            - code is just ONE property of fn
+         - can attach value/other object/function
