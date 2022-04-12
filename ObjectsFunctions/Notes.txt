@@ -28,3 +28,21 @@
          - code inside is just another property, which is invocable (then execution ctx created etc)
             - code is just ONE property of fn
          - can attach value/other object/function
+- Expression: code that results in a value
+    - Can make a variable equal to a function. Variable will point to address where function lives in memory 
+    - NOT hoisted, only variable made (as undefined) made during creation phase, JS doesnt know its a fn yet so cant run it
+- Statement: does not return a value, just does work
+- Anonymous fn just doesnt have a name, which is just a property of the function objects
+- By Value and By reference
+    - Primitve values are copied and point to a new location in memory
+    - Objects do not get new location, just point to same reference
+        - Even as fn parameter, still only passed by reference
+    - equals operator, if using a NEW non-pre-existing value, will point to a new memory space
+- 'this'
+    - Each function invocation makes a new execution ctx is made and put on execution stack
+        - Execution ctx will have variable environment
+    - fn running js gives 'this' keyword, which can change depending on how/where fn is called
+    - Invoking fn will make unique 'this' but all pointing to global window in memory
+    - IF method is in an object's method, points to container object (allows mutation)
+    - Trick is to set value called 'self' in object, and by reference will point to 'this' of fn
+        - Nested function can use self because looks up scope chain when not defined in namespace
