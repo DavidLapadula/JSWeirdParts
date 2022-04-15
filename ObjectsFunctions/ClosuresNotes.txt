@@ -1,0 +1,15 @@
+- If a fn is returned from a fn, it can also be invoked like foo()()
+- Garbage collection clears memory space for execution ctx
+- When variable not found in execution ctx, will look up scope chain in lexical env
+- Even if fn is done and execution ctx popped off stack, fn's inside it have reference to its memory
+    - JS engine 'closes' variables its supposed to have access to
+    - Dont need to worry out env is running, JS engine makes sure scope is intact
+- Execution ctx made when INVOKED, so will go to outer reference at that point, even if outer ctx has been popped off
+    - Fn can only say what is in memory of outer ctx NOW, not when it was created
+- Let will create function scoped variable, so different reference in memory relative to the scope
+- Fn factories
+    - fn that makes things for you
+    - will create unique execution ctx that inner functions will have access to that. Will point to memory space of function that created it
+- Callbacks
+    - setTimeout passes fn, only because its first class object, and uses function expression
+    - callback is passing a function to a function that is run when the original function is done
