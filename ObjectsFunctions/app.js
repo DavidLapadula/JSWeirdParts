@@ -48,7 +48,9 @@ var c = {
     log: function() {
         var self = this; 
 
+        self.name = "Updated object";
         console.log(this); // will point to the object
+       
         var setName = function (newname) {
             this.name = newname; // 'this' points to global object
             self.name = newname; // 'this' points to object
@@ -57,3 +59,35 @@ var c = {
         setName("New Name");
     }
 }
+
+function argumentsGreet(fname, lname, language) {
+    console.log(fname);
+    console.log(lname);
+    console.log(language);
+    console.log(arguments);
+    console.log('----------------------');
+}
+
+function getPerson() {
+    return // parser will put semi-colon here, and will not return object
+    {
+        name: "David"
+    }
+}
+
+// IIFE
+var iifeGreeting = function(name) {
+    return name;
+}('David');
+
+console.log(iifeGreeting); // will evaluate to name after it is invoked
+
+// parenthenticals will trick parsers into thinking function is an expression, not a statement
+// without parentheses, would be statement, function keyword must be followed by function name
+(function (name){
+    console.log('Hello ' + name);
+}('Jane')); // fn created an ran at the same time
+
+(function (global) {
+    global.name = "John"; // its own execution ctx, but can pass reference to global to change value at window level
+}(window));

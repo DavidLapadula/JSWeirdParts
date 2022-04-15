@@ -46,3 +46,29 @@
     - IF method is in an object's method, points to container object (allows mutation)
     - Trick is to set value called 'self' in object, and by reference will point to 'this' of fn
         - Nested function can use self because looks up scope chain when not defined in namespace
+- arguments and spread
+    - new fn = new execution ctx - variable env, outer env, 'this', and 'arguments'
+    - 'arguments' holds all values of all parameters. Its 'array-like' - behaves like one but without all features
+        - Can check length or get by index 
+        - Ccontains values of arguments only, not values
+    - JS allows calling fn that expects args without them, b/c args are hoisted during creation phase
+    - Spread - can capture extra parameters that are not defined and put into an array
+- Overloading
+    - JS does not have b/c fn is object
+    - Can simulate overloading by new functions that call base function with arguments you want
+- Syntax Parsers
+    - Intermediate program b/w code you write and code that is run. 
+    - JS engine has parser that ensures code is valid. Evaluates character by character
+    - Parser will sometimes change code before it is executed
+- Automatic semicolon insertion 
+    - Parser will put semicolon where it expects one if missing, like carriage return
+    - Carriage return + return will end a fn - starting brace should exist on the same line
+- Whitespace
+    - Invisible character that crate space in code (tabs, spaces, etc)
+- Immediately Invoked Function Expressions
+    - Function invoked as soon as it is created
+    - Invoked means, if it evaluates to variable, variable will hold the return
+    - Parentheses only used with expressions, NOT statement
+    - Variables in IIFE sit in execution ctx of that fn, NOT in global context
+        - Prevents collisions between frameworks as each variable is in own ctx on stack
+        - Safe b/c if you want to mutate global object, need to pass reference and do it on purpose
