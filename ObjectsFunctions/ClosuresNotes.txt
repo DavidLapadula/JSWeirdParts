@@ -13,3 +13,17 @@
 - Callbacks
     - setTimeout passes fn, only because its first class object, and uses function expression
     - callback is passing a function to a function that is run when the original function is done
+- call(), apply(), bind()
+    - all function objects have access to these methods
+    - control what 'this' is when execution ctx is created
+        - bind(): pass the 'this' variable, and will make a new copy with 'this' in execution ctx
+        - call(): will invoke function, but 1st argument will be 'this'. DOES NOT make copy, calls the function
+        - apply(): same as call(), excepts wants an array with an entry for EACH argument the fn needs
+    - Borrowing: take method from similar object and control what 'this' is inside of that object
+    - Currying: can use bind() to lock in parameter. Since bind() makes copy, can permanently set parameters on that copy
+- Functional Programming
+    - Programming languages where functions are first class objects
+        - Using first class functions to your advantage
+    - Can pass around functions to abstract logic away
+    - Give fn's other functions, or return function from a function that can later be invoked
+    - Functions passed around SHOULD NOT mutate data; either change it at top level or change a copy and return that
