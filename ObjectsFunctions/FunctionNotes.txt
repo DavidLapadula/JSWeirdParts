@@ -1,0 +1,74 @@
+- Objects and Fn's very similar in JS
+- Object can have property (primitive, another object), and a method
+- In memory, will be address with object and then reference where its properties/methods are
+    -  [] is an operator for get/set values in object. Looks for property with that name and either gets or sets 
+        - better for dynamic values b/c can pass variable   
+    - . operator - takes object and looks for the string value of what is given - parser converts to a string
+        - b/c is operator (high precedence) will run left to right, looking at each object in that order
+- Object literal
+     - just use {}, engine will make a new object when sees it, and can set propertis on it
+     - split across lines and still treated as one line of code
+     - allows creating obj on the fly, like when passing to an argument
+        - creating ON THE FLY powerful feature of JS other languages do not have
+    - JS engine doing same thing, just syntactic sugar, still just creating an objectwith pointers in memory
+- Faking Namespaces
+    - NS is container for variables and functions; separates values with same name
+    - JS does not have namespaces, issue if value set on global object with same name in different files
+    - Objects can be containers that prevent collision in global namespace
+- Dot operator is left associative, so if value not found, is undefined, and cannot use dot on undefined
+- KEY POINT: associativity/precedence of operators return something, which is the value that is used
+- JSON
+    - data USED to be sent across internet as xml, but formatting causes many extra characters
+    - JSON uses less characters, is a SUBSET of object literals
+    - Due to similarity, JS has .stringify to make JSON and .parse to return to object
+- FN's are objects
+    - First class fn's: everything you can do with other types, you can do with fn's (assign, pass, create on the fly)
+    - Special type of object
+         - can be anonymous
+         - code inside is just another property, which is invocable (then execution ctx created etc)
+            - code is just ONE property of fn
+         - can attach value/other object/function
+- Expression: code that results in a value
+    - Can make a variable equal to a function. Variable will point to address where function lives in memory 
+    - NOT hoisted, only variable made (as undefined) made during creation phase, JS doesnt know its a fn yet so cant run it
+- Statement: does not return a value, just does work
+- Anonymous fn just doesnt have a name, which is just a property of the function objects
+- By Value and By reference
+    - Primitve values are copied and point to a new location in memory
+    - Objects do not get new location, just point to same reference
+        - Even as fn parameter, still only passed by reference
+    - equals operator, if using a NEW non-pre-existing value, will point to a new memory space
+- 'this'
+    - Each function invocation makes a new execution ctx is made and put on execution stack
+        - Execution ctx will have variable environment
+    - fn running js gives 'this' keyword, which can change depending on how/where fn is called
+    - Invoking fn will make unique 'this' but all pointing to global window in memory
+    - IF method is in an object's method, points to container object (allows mutation)
+    - Trick is to set value called 'self' in object, and by reference will point to 'this' of fn
+        - Nested function can use self because looks up scope chain when not defined in namespace
+- arguments and spread
+    - new fn = new execution ctx - variable env, outer env, 'this', and 'arguments'
+    - 'arguments' holds all values of all parameters. Its 'array-like' - behaves like one but without all features
+        - Can check length or get by index 
+        - Ccontains values of arguments only, not values
+    - JS allows calling fn that expects args without them, b/c args are hoisted during creation phase
+    - Spread - can capture extra parameters that are not defined and put into an array
+- Overloading
+    - JS does not have b/c fn is object
+    - Can simulate overloading by new functions that call base function with arguments you want
+- Syntax Parsers
+    - Intermediate program b/w code you write and code that is run. 
+    - JS engine has parser that ensures code is valid. Evaluates character by character
+    - Parser will sometimes change code before it is executed
+- Automatic semicolon insertion 
+    - Parser will put semicolon where it expects one if missing, like carriage return
+    - Carriage return + return will end a fn - starting brace should exist on the same line
+- Whitespace
+    - Invisible character that crate space in code (tabs, spaces, etc)
+- Immediately Invoked Function Expressions
+    - Function invoked as soon as it is created
+    - Invoked means, if it evaluates to variable, variable will hold the return
+    - Parentheses only used with expressions, NOT statement
+    - Variables in IIFE sit in execution ctx of that fn, NOT in global context
+        - Prevents collisions between frameworks as each variable is in own ctx on stack
+        - Safe b/c if you want to mutate global object, need to pass reference and do it on purpose
