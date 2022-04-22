@@ -1,0 +1,5 @@
+- 'new' keyword with class like var a = new b(); was to attract java devs
+    - fn constructor is fn that is used to make an object
+        - 'new' makes an empty object, then invokes fn (execution ctx) with 'this' pointing to new empty object 
+        - JS engine will return new object as long as object does not have a return statement
+        - each invocation of 'new' will make a NEW DIFFERENT object
