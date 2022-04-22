@@ -1,0 +1,24 @@
+- Classical vs Prototypal inheritance
+    - One object gets access to properties/methods of another object
+    - Classical: sharing properties and methods (Java, C#)
+- Prototypal
+    - All object have a prototype property, that references another object that stands alone. This other object is the prototype
+        - Proto of obj 1 can have its own proto
+    - If property not found on object, will look on prototype
+    - Prototype chain: where properties/method available, is hidden but JS engine will search the chain
+    - Obj1 and Obj2 can point to the same prototype. Properties are shared via the prototype chain
+- You can directly access prototype, but will slow down application
+- Object that originates call will determine 'this'
+- JS engine starts at the top of the chain and stops when it finds it
+- Everything leads to base object, which itself has methods, like toString()
+    - All objects lead to base object, where base methods are inherited from
+    - All functions have base function, with apply(), bind() etc., and all functions __proto__ are on base function, which is why all fn's have access to it
+    - All arrays have base arrays which have certain methods, all arrays share this __proto__ so all have access to this
+        - For every object type, they have a base proto at the bottom of the chain that enables all instances to have certain features available
+- Reflection: obj can look at its own properties and methods, which allows extension
+    - for...in will look at ALL properties, including those somwhere in prototype chain
+    - hasOwnProperty() will tell you if its on base object, so not inherited
+- Extend
+    - Put features of one object on another
+    - This places the properties on the object itself, not in the prototype chain
+    - Will actually create property/method on target object
