@@ -1,5 +1,34 @@
+- Literals are just calling constructor
 - 'new' keyword with class like var a = new b(); was to attract java devs
     - fn constructor is fn that is used to make an object
         - 'new' makes an empty object, then invokes fn (execution ctx) with 'this' pointing to new empty object 
         - JS engine will return new object as long as object does not have a return statement
         - each invocation of 'new' will make a NEW DIFFERENT object
+- fn constructor makes prototype for you
+- prototype property of object ONLY gets used when using a fn constructor
+    - prototype property of fn is NOT prototype of it. It is prototype of objects made with that constructor
+    - 'new' keyword sets prototype property to the prototype of the function called
+        - when object made with constructor, prototype property of constructor is its prototype
+        - so every instance made with constructor will point to same prototype property. Can add features to all objects at once
+        - adding function as method to EVERY object fn each will get own copy instead of just 1 on prototype, saves memory
+- Without 'new' keyword, object will be undefined and therefore cannot be invoked 
+    - Capitalize first letter of function constructors to distinguish them 
+- Built in fn constructors
+    - ex. new Number('2'): this is an OBJECT that wraps primitve
+    - primitves can get 'boxed' with constructor to give access to the same methods. Primitve converted to object
+        - if add to String constructor, will also be available on primitives b/c of boxing.
+        - this is prototypal INHERITANCE and can be used for enhancements
+- Built in constructors return object, so need to be careful with comparisons and primitves 
+- Array is object, so items are properties on that object
+    - for...in will iterate over properties, so can be looking at prototype if not careful
+- Object.create() (pure prototypal inheritance)
+    - 'new' is just trying to mimic classical inheritance
+    -  makes a new object with prototype as object passed in
+    -  pattern is to make new object (literal) that becomes prototype for all others and change values for each instance along the way 
+        - can change prototype on the fly depending on needs of THAT instance 
+- Polyfill: new feature engine may lack
+- ES6 and classes
+    - Class in other language is way of defining objects
+    - JS does have classes in this way. Class is an objects used to create other objects
+    
+
