@@ -1,0 +1,12 @@
+- Initialization
+    - Literal Initialization good way to prototype data
+- toString() on base object's prototype, and can use .call() on it to get type 
+- typeof accepts 1 parameter and tell you what something is
+- instanceof - if find object checking for anywhere in prototype chain
+- Strict mode ("use strict")
+    - at top of file for it to be global or in function for just that execution context
+    - tell it to process code in a more regimented way
+    - implement extra code when code is parsed
+        - ex. variable must be defined to use it
+    - every JS engine implements use strict in a different way
+    - if code minified, all code defined after "use strict" will be influenced by it

@@ -30,5 +30,6 @@
 - ES6 and classes
     - Class in other language is way of defining objects
     - JS does have classes in this way. Class is an objects used to create other objects
-    
+    - Same as using function constructor, except 'extends' will set prototype for instances
+
 
