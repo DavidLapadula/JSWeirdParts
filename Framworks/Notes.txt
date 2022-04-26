@@ -1,0 +1,6 @@
+- Fn that will return a call to a constructor can prevent the user from needing to enter 'new'
+- Fn made with constructor, 'this' points to empty object made by it
+    - BUT fn can manipulate it and then return it, resultant object returned would be the same
+- Method chaining: one method after another but whole chain points to parent object
+    - Each function needs to do work + return 'this' b/c then methods will be available on return
+    - Allowed b/c 'this' on invokedd function will point to fn that made the call
