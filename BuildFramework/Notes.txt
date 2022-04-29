@@ -1,0 +1,1 @@
+- Properties that are not in object returned are private and cannot be accessed from outside fn. But IIFE creates closure with lexical environment
