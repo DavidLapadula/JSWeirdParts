@@ -1,4 +1,4 @@
-# JS: Understandint the Weird Parts
+# JS: Understanding the Weird Parts
 
 Source code for course covering core JS features
 
