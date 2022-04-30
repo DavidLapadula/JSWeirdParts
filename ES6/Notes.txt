@@ -1,0 +1,23 @@
+- Transpiled languages: convert syntax of one language to that of another. Languages do not run anywhere, TS just transpiles to JS, which then runs somewhere
+- Each fn gets put on a stack, with its own execution ctx, and then called. 
+    - Fn's that reference variable create closures so variables available even after fn runs, and if var not available will look up the stack
+- Queue: when things outside the engine needs to happen and happen WHILE JS engine is running its code. When it does happen, JS engine is alerted
+    - JS engine embedded in larger system (browser), and when one of these things occurs it gets put on a queue that JS egine will look at when its done
+    - Things like fetch are part of system that embed JS engine
+- Promise: standard way of handling async code and callbacks available in spec
+- Promise object represent future value AFTER work has completed
+    - It doesnt do any work, just runs the function that does the work and then decides what to do after work is done
+        - 'executor' is written by dev and given to promise
+    - Creation of Promise starts the work
+    - Req use of feature then pass handler once that feature has been received
+- Promise object gets priority inside JS engine
+- Sequence of Promises 
+    - this.then should return Promise, in case callback also needs to wait, so can be chained
+    - Chained .then(). If HANDLER returns value, will return a new promise
+    - This allows for chained .then, because attach handler to promise returned from previous .then
+    - .then always returns a Promise, but if HANDLER returns a Promise that Promise will sync up and result is same value as Promise returned by .then
+    - Modern implementations do not require calling resolve() from Promise to ensure handler is called
+- async/await
+    - thennable - has a .then, doesnt necessarily return a promise, but follow pattern so coding practice can stay the same
+    - async tells engine you need to await at least 1 Promise in fn
+    - when called, async fn removed from stack and paused until awaited value done, then ctx put back on stack WITH value
