@@ -1,6 +1,6 @@
 # JS: Understanding the Weird Parts
 
-Source code for course covering core JS features
+Source code for course covering core JS features. 
 
 ## Topics Included
 
